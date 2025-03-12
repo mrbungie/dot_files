@@ -1,0 +1,105 @@
+[user]
+    # These values are set by the user during installation
+    # name = Your Name
+    # email = your.email@example.com
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+    whitespace = trailing-space,space-before-tab
+    pager = less -FRX
+
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+
+[init]
+    defaultBranch = main
+
+[push]
+    default = simple
+    followTags = true
+
+[pull]
+    rebase = false
+
+[fetch]
+    prune = true
+
+[diff]
+    tool = vimdiff
+    renames = copies
+    mnemonicprefix = true
+    compactionHeuristic = true
+
+[difftool]
+    prompt = false
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+    ff = only
+
+[mergetool]
+    prompt = false
+    keepBackup = false
+
+[alias]
+    # Shortcuts
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    df = diff
+    dc = diff --cached
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+    ls = ls-files
+    
+    # Show verbose output about tags, branches, or remotes
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+    
+    # Amend the currently staged files to the latest commit
+    amend = commit --amend --reuse-message=HEAD
+    
+    # Remove branches that have been merged with main
+    cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master\\|develop' | xargs -n 1 git branch -d"
+    
+    # Show the diff between the latest commit and the current state
+    d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+    
+    # Find branches containing commit
+    find-branch = "!f() { git branch -a --contains $1; }; f"
+    
+    # Find tags containing commit
+    find-tag = "!f() { git describe --always --contains $1; }; f"
+    
+    # Find commits by source code
+    find-code = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+    
+    # Find commits by commit message
+    find-commit = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+    
+    # Show who contributed, in descending order by number of commits
+    contributors = shortlog --summary --numbered --no-merges
+    
+    # List aliases
+    aliases = config --get-regexp alias
+
+[help]
+    autocorrect = 1
+
+[credential]
+    helper = cache --timeout=3600
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true 

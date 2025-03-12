@@ -1,0 +1,101 @@
+# Cross-platform shell aliases
+# These aliases should work in both bash and zsh
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~"
+
+# List directory contents
+alias ls="ls --color=auto"
+alias ll="ls -la"
+alias la="ls -a"
+alias l="ls -CF"
+
+# Git shortcuts
+alias g="git"
+alias ga="git add"
+alias gc="git commit"
+alias gco="git checkout"
+alias gd="git diff"
+alias gs="git status"
+alias gl="git log"
+alias gp="git push"
+alias gpl="git pull"
+alias gb="git branch"
+
+# Directory shortcuts
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias doc="cd ~/Documents"
+alias dev="cd ~/Development"
+
+# System
+alias h="history"
+alias j="jobs"
+alias p="ps -f"
+alias rm="rm -i"  # Interactive mode
+alias cp="cp -i"  # Interactive mode
+alias mv="mv -i"  # Interactive mode
+alias mkdir="mkdir -p"  # Create parent directories if needed
+
+# Network
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+alias ping="ping -c 5"
+
+# Utility
+alias c="clear"
+alias path="echo -e ${PATH//:/\\n}"
+alias now="date +\"%T\""
+alias today="date +\"%d-%m-%Y\""
+
+# Editor
+alias e="$EDITOR"
+
+# Docker
+alias d="docker"
+alias dc="docker-compose"
+alias dps="docker ps"
+alias di="docker images"
+
+# Kubernetes
+alias k="kubectl"
+alias kgp="kubectl get pods"
+alias kgs="kubectl get services"
+alias kgd="kubectl get deployments"
+
+# Python
+alias py="python"
+alias py3="python3"
+alias pip="pip3"
+alias ve="python -m venv venv"
+alias va="source venv/bin/activate"
+
+# Node.js
+alias n="npm"
+alias nr="npm run"
+alias ni="npm install"
+alias nid="npm install --save-dev"
+alias nig="npm install -g"
+alias ns="npm start"
+alias nt="npm test"
+
+# Grep with color
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+
+# Reload shell configuration
+alias reload="source ~/.bashrc || source ~/.zshrc"
+
+# Show hidden files
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Shortcuts for dotfiles
+alias dotfiles="cd $HOME/.dotfiles"
+alias dotconfig="cd $HOME/.dotfiles/config" 

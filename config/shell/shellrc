@@ -1,0 +1,96 @@
+# Common shell settings for bash/zsh
+# These settings should work across platforms
+
+# Set default editor
+export EDITOR="vim"
+export VISUAL="vim"
+
+# Set default pager
+export PAGER="less"
+
+# Set history settings
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignoreboth:erasedups
+
+# Don't put duplicate lines in the history
+setopt HIST_IGNORE_DUPS 2>/dev/null || true
+
+# Append to the history file, don't overwrite it
+shopt -s histappend 2>/dev/null || true
+
+# Check the window size after each command
+shopt -s checkwinsize 2>/dev/null || true
+
+# Make less more friendly for non-text input files
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# Set colorful prompt
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    # We have color support
+    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='\u@\h:\w\$ '
+fi
+
+# Enable color support of ls
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# Set PATH additions
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+# Node.js version manager (nvm)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Python virtual environment
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)" 2>/dev/null || true
+fi
+
+# Ruby version manager (rbenv)
+if [ -d "$HOME/.rbenv" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)" 2>/dev/null || true
+fi
+
+# Go language
+if [ -d "/usr/local/go" ]; then
+    export GOPATH="$HOME/go"
+    export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
+fi
+
+# Rust language
+if [ -f "$HOME/.cargo/env" ]; then
+    source "$HOME/.cargo/env"
+fi
+
+# Java home
+if [ -x /usr/libexec/java_home ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
+fi
+
+# Enable programmable completion features
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+# Load custom functions
+if [ -f "$HOME/.functions" ]; then
+    source "$HOME/.functions"
+fi
+
+# Load local settings that shouldn't be in git
+if [ -f "$HOME/.localrc" ]; then
+    source "$HOME/.localrc"
+fi 

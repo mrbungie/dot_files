@@ -1,0 +1,70 @@
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+
+# CLI Tools
+brew "git"
+brew "vim"
+brew "tmux"
+brew "zsh"
+brew "wget"
+brew "curl"
+brew "htop"
+brew "tree"
+brew "jq"
+brew "fzf"
+brew "ripgrep"
+brew "fd"
+brew "bat"
+brew "exa"
+brew "diff-so-fancy"
+brew "thefuck"
+brew "tldr"
+brew "z"
+brew "gh"
+brew "mas"
+
+# Development
+brew "node"
+brew "python"
+brew "go"
+brew "rust"
+brew "ruby"
+brew "openjdk"
+brew "docker"
+brew "docker-compose"
+brew "kubernetes-cli"
+brew "terraform"
+brew "awscli"
+brew "azure-cli"
+brew "google-cloud-sdk"
+
+# Casks (Applications)
+cask "iterm2"
+cask "visual-studio-code"
+cask "docker"
+cask "google-chrome"
+cask "firefox"
+cask "slack"
+cask "zoom"
+cask "rectangle"
+cask "alfred"
+cask "1password"
+cask "spotify"
+cask "postman"
+cask "insomnia"
+cask "notion"
+cask "discord"
+
+# Fonts
+cask "font-fira-code"
+cask "font-jetbrains-mono"
+cask "font-hack-nerd-font"
+cask "font-source-code-pro"
+
+# Mac App Store
+mas "Xcode", id: 497799835
+mas "Magnet", id: 441258766
+mas "The Unarchiver", id: 425424353 

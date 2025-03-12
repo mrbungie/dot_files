@@ -1,0 +1,127 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+.classpath
+.factorypath
+*.iml
+*.ipr
+*.iws
+.vs/
+*.user
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+*.pyo
+__pycache__/
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Environment and configuration
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.envrc
+.direnv/
+.python-version
+.ruby-version
+.node-version
+.nvmrc
+.tool-versions
+
+# Dependency directories
+node_modules/
+jspm_packages/
+bower_components/
+vendor/
+.bundle/
+venv/
+ENV/
+env/
+.venv/
+.virtualenv/
+.tox/
+.pytest_cache/
+.coverage
+htmlcov/
+.gradle/
+build/
+dist/
+target/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Local configuration files
+.localrc
+.localrc.ps1
+.local/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# macOS
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows
+$RECYCLE.BIN/
+System Volume Information/
+
+# Linux
+.directory
+.fuse_hidden*
+.nfs* 
