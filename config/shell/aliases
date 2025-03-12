@@ -1,13 +1,6 @@
 # Cross-platform shell aliases
 # These aliases should work in both bash and zsh
 
-# Navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~"
-
 # List directory contents
 alias ls="ls --color=auto"
 alias ll="ls -la"
@@ -27,10 +20,10 @@ alias gpl="git pull"
 alias gb="git branch"
 
 # Directory shortcuts
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias doc="cd ~/Documents"
-alias dev="cd ~/Development"
+alias cdl="cd ~/Downloads"
+alias cdt="cd ~/Desktop"
+alias cdoc="cd ~/Documents"
+alias cdev="cd ~/Development"
 
 # System
 alias h="history"
@@ -99,3 +92,7 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 # Shortcuts for dotfiles
 alias dotfiles="cd $HOME/.dotfiles"
 alias dotconfig="cd $HOME/.dotfiles/config" 
+
+# Shortcuts for github
+alias ghcs="gh copilot suggest"
+alias ghce="gh copilot explain"

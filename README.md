@@ -1,46 +1,76 @@
-# Cross-Platform Dotfiles
+# Dotfiles
 
-A portable dotfiles repository that works across macOS, Linux, and Windows while maintaining consistency and shared configurations where possible.
-
-## Repository Structure
-
-```
-dotfiles/
-│── bootstrap/        # Bootstrapping scripts (per OS)
-│   ├── install_mac.sh
-│   ├── install_linux.sh
-│   ├── install_windows.ps1
-│── config/           # Config files (platform-agnostic)
-│   ├── aliases       # Aliases (portable)
-│   ├── gitconfig     # Global Git config
-│   ├── shellrc       # Common shell settings
-│── platform/         # OS-specific configurations
-│   ├── macos/
-│   │   ├── zshrc
-│   │   ├── brewfile
-│   ├── linux/
-│   │   ├── bashrc
-│   │   ├── apt_packages
-│   ├── windows/
-│   │   ├── powershell_profile.ps1
-│── scripts/          # Utility scripts (helper functions)
-│── install.sh        # Main installer (detects OS)
-```
+A cross-platform dotfiles management system that supports macOS, Linux, and Windows with selective installation options.
 
 ## Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
-   ```
+### macOS and Linux
 
-2. Run the installer:
-   ```bash
-   cd ~/.dotfiles
-   ./install.sh
-   ```
+Use the shell script installer:
 
-The installer will detect your operating system and set up the appropriate configurations.
+```bash
+# Install everything (default)
+./install.sh
+
+# Or install specific components
+./install.sh --git        # Only git configuration
+./install.sh --aliases    # Only shell aliases
+./install.sh --shell      # Only shell configuration
+
+# Combine multiple options
+./install.sh --git --aliases
+
+# Show help
+./install.sh --help
+```
+
+### Windows
+
+Use the PowerShell script installer:
+
+```powershell
+# Install everything (default)
+.\install.ps1
+
+# Or install specific components
+.\install.ps1 --git        # Only git configuration
+.\install.ps1 --aliases    # Only PowerShell aliases
+.\install.ps1 --shell      # Only PowerShell profile
+
+# Combine multiple options
+.\install.ps1 --git --aliases
+
+# Show help
+.\install.ps1 --help
+```
+
+## Components
+
+- **Git Configuration**: Global git settings and aliases
+- **Shell Aliases**: Common shell aliases for improved productivity
+- **Shell Configuration**: Shell-specific settings (bash/zsh for Unix, PowerShell for Windows)
+
+## Directory Structure
+
+```
+.
+├── install.sh           # Unix installer script
+├── install.ps1          # Windows installer script
+├── config/             # Configuration files
+│   ├── git/           # Git configuration
+│   └── shell/         # Shell configuration
+├── bootstrap/         # OS-specific bootstrap scripts
+│   ├── install_mac.sh
+│   └── install_linux.sh
+└── platform/          # Platform-specific configurations
+```
+
+## Notes
+
+- The Unix installer (`install.sh`) supports macOS and Linux
+- The Windows installer (`install.ps1`) provides equivalent functionality using PowerShell
+- Each component can be installed independently or together
+- OS-specific bootstrapping is only performed when installing all components
 
 ## Features
 
